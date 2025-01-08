@@ -144,13 +144,12 @@ col2.subheader(f'Bar plot of % Price Change')
 col2.write(f'*Last {percent_timeframe} period*')
 
 # Plotting Horizontal Bar Chart
-plt.style.use('sns')
+sns.set_style("whitegrid")
 
 fig, ax = plt.subplots()
 ax.barh(bar_chart_df['coin_symbol'],
         bar_chart_df[selected_percent_timeframe], 
-        color=bar_chart_df.positive_percent_change\
-        .map({True: 'lightblue', False: 'pink'}))
+        color=bar_chart_df.positive_percent_change.map({True: 'lightblue', False: 'pink'}))
 
 ax.set_xlabel('Percent Change', fontsize=17, labelpad=15)
 ax.tick_params(axis='both', labelsize=13)
